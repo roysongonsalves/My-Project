@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>EDGE Gym</title>
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+  <!-- Custom stylesheet -->
+  <link rel="stylesheet" href="css/custom.css" />
+  <style>
+body {font-family: Arial, Helvetica, sans-serif;}
+
+#myImg1, #myImg2, #myImg3, #myImg4, #myImg5, #myImg6, #myImg7, #myImg8, #myImg9, #myImg10 {
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+#myImg1:hover, #myImg2:hover, #myImg3:hover, #myImg4:hover, #myImg5:hover,
+#myImg6:hover, #myImg7:hover, #myImg8:hover, #myImg9:hover, #myImg10:hover { opacity: 0.7; }
+
+/* The Modal (background) */
+.modal1, .modal2, .modal3, .modal4, .modal5,
+.modal6, .modal7, .modal8, .modal9, .modal10 {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    padding-top: 100px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.9); /* Black w/ opacity */
+}
+
+/* Modal Content (image) */
+.modal1, .modal2, .modal3, .modal4, .modal5,
+.modal6, .modal7, .modal8, .modal9, .modal10 {
+    margin: auto;
+    display: block;
+    width: 80%;
+    max-width: 400px;
+}
+
+/* Caption of Modal Image */
+#caption1, #caption2, #caption3, #caption4, #caption5,
+#caption6, #caption7, #caption8, #caption9, #caption10 {
+    margin: auto;
+    display: block;
+    width: 80%;
+    max-width: 700px;
+    text-align: center;
+    color: #ccc;
+    padding: 10px 0;
+    height: 150px;
+}
+
+/* Add Animation */
+.modal-content1, .modal-content2, .modal-content3, .modal-content4, .modal-content5, .modal-content6, .modal-content7, .modal-8, .modal-content9, .modal-content10, #caption1, #caption2, #caption3, #caption4, #caption5, #caption6, #caption7, #caption8, #caption9, #caption10 {
+    -webkit-animation-name: zoom;
+    -webkit-animation-duration: 0.6s;
+    animation-name: zoom;
+    animation-duration: 0.6s;
+}
+
+@-webkit-keyframes zoom {
+    from {-webkit-transform:scale(0)}
+    to {-webkit-transform:scale(1)}
+}
+
+@keyframes zoom {
+    from {transform:scale(0)}
+    to {transform:scale(1)}
+}
+
+/* The Close Button */
+.close1, .close2, .close3, .close4, .close5
+.close6, .close7, .close8, .close9, .close10 {
+    position: absolute;
+    top: 15px;
+    right: 35px;
+    color: #f1f1f1;
+    font-size: 40px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.close1:hover, .close2:hover, .close3:hover, .close4:hover, .close5:hover, .close6:hover, .close7:hover, .close8:hover, .close9:hover, .close10:hover,
+.close1:focus, .close2:focus, .close3:focus, .close4:focus, .close5:focus, .close6:focus, .close7:focus, .close8:focus, .close9:focus, .close10:focus {
+    color: #bbb;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* 100% Image Width on Smaller Screens */
+@media only screen and (max-width: 700px){
+    .modal-content1, .modal-content2, .modal-content3, .modal-content4, .modal-content5, .modal-content6, .modal-content7, .modal-content8, .modal-content9, .modal-content10  {
+        width: 100%;
+    }
+}
+* {
+    box-sizing: border-box;
+}
+
+.column {
+    float: left;
+    width: 33.33%;
+    padding: 5px;
+}
+
+/* Clearfix (clear floats) */
+.row::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+/* Responsive layout - makes the three columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 500px) {
+    .column {
+        width: 100%;
+    }
+}
+</style>
+</head>
+<body>
+
+  <!-- Preloader -->
+  <div id="loading">
+    <div id="loading-center">
+      <div id="loading-center-absolute">
+        <div class="object" id="object_one"></div>
+        <div class="object" id="object_two"></div>
+        <div class="object" id="object_three"></div>
+        <div class="object" id="object_four"></div>
+        <div class="object" id="object_five"></div>
+        <div class="object" id="object_six"></div>
+        <div class="object" id="object_seven"></div>
+        <div class="object" id="object_eight"></div>
+        <div class="object" id="object_big"></div>
+      </div>
+    </div>
+  </div>
+  <!--End Preloader -->
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-default">
+    <div class="container">
+
+      <div class="navbar-header">
+        <a href="#"><img src="images/fitness.png" alt="Fitness" /></a>
+
+      </div>
+
+    </div>
+  </nav><!-- Navbar end -->
+
+  <!-- Service -->
+  <section id="features">
+      <h2>Chest Workout</h2><br>
+      <div id="carousel" class="carousel slide" data-ride="carousel">
+      <div class="item active">
+          <img src="images/chest_img.jpg" alt="chest">
+          <div class="carousel-caption photo_overlay">
+          <div class="container">
+              <div class="carousel_caption_inner">
+                  <h3>Better Training</h3>
+                  <h1>Chest Workout</h1>
+
+                  <p>With the amount of gym rats who say they "can't bench anymore," you'd think there's a reverse age limit on the movement! No, you don't have to give it up at 35, but you'd better get serious about doing it right. Here's how. </p>
+              </div>
+          </div>
+        </div>
+      </div>
+    </div><br>
+  <div class="row">
+  <div class="column">
+    <img id="myImg1" src="images/C1.png" alt="Butterfly Press" style="width:100%;max-width:300px">
+  </div>
+  <div class="column">
+    <img id="myImg2" src="images/C2.png" alt="Butter Press" style="width:100%;max-width:300px">
+  </div>
+  <div class="column">
+    <img id="myImg3" src="images/C3.jpg" alt="Butterfly Press" style="width:100%;max-width:300px">
+  </div>
+</div><br>
+<div class="row">
+<div class="column">
+  <img id="myImg4" src="images/C4.jpg" alt="Butterfly Press" style="width:100%;max-width:300px">
+</div>
+<div class="column">
+  <img id="myImg5" src="images/C5.png" alt="Butterfly Press" style="width:100%;max-width:300px">
+</div>
+<div class="column">
+  <img id="myImg6" src="images/C6.png" alt="Butterfly Press" style="width:100%;max-width:300px">
+</div>
+</div><br>
+<div class="row">
+<div class="column">
+  <img id="myImg7" src="images/C7.png" alt="Butterfly Press" style="width:100%;max-width:300px">
+</div>
+<div class="column">
+  <img id="myImg8" src="images/C8.jpg" alt="Butterfly Press" style="width:100%;max-width:300px">
+</div>
+<div class="column">
+  <img id="myImg9" src="images/C9.jpg" alt="Butterfly Press" style="width:100%;max-width:300px">
+</div>
+</div><br>
+<img id="myImg10" src="images/C10.png" alt="Butterfly Press" style="width:100%;max-width:300px">
+<br><br><br><br><br><br>
+
+<!-- The Modal -->
+<div id="myModal1" class="modal1">
+  <span class="close1">&times;</span>
+  <img class="modal-content1" id="img01">
+  <div id="caption1"></div>
+</div>
+<div id="myModal2" class="modal2">
+  <span class="close2">&times;</span>
+  <img class="modal-content2" id="img02">
+  <div id="caption2"></div>
+</div>
+<div id="myModal3" class="modal3">
+  <span class="close3">&times;</span>
+  <img class="modal-content3" id="img03">
+  <div id="caption3"></div>
+</div>
+<div id="myModal4" class="modal4">
+  <span class="close4">&times;</span>
+  <img class="modal-content4" id="img04">
+  <div id="caption4"></div>
+</div>
+<div id="myModal5" class="modal5">
+  <span class="close5">&times;</span>
+  <img class="modal-content5" id="img05">
+  <div id="caption5"></div>
+</div>
+<div id="myModal6" class="modal6">
+  <span class="close6">&times;</span>
+  <img class="modal-content6" id="img06">
+  <div id="caption6"></div>
+</div>
+<div id="myModal7" class="modal7">
+  <span class="close7">&times;</span>
+  <img class="modal-content7" id="img07">
+  <div id="caption7"></div>
+</div>
+<div id="myModal8" class="modal8">
+  <span class="close8">&times;</span>
+  <img class="modal-content8" id="img08">
+  <div id="caption8"></div>
+</div>
+<div id="myModal9" class="modal9">
+  <span class="close9">&times;</span>
+  <img class="modal-content9" id="img09">
+  <div id="caption9"></div>
+</div>
+<div id="myModal10" class="modal10">
+  <span class="close10">&times;</span>
+  <img class="modal-content10" id="img10">
+  <div id="caption10"></div>
+</div>
+</section>
+  <!-- Service end -->>
+  <script>
+// Get the modal
+var modal1 = document.getElementById('myModal1');
+var modal2 = document.getElementById('myModal2');
+var modal3 = document.getElementById('myModal3');
+var modal4 = document.getElementById('myModal4');
+var modal5 = document.getElementById('myModal5');
+var modal6 = document.getElementById('myModal6');
+var modal7 = document.getElementById('myModal7');
+var modal8 = document.getElementById('myModal8');
+var modal9 = document.getElementById('myModal9');
+var modal10 = document.getElementById('myModal10');
+
+// Get the image and insert it inside the modal - use its "alt" text as a caption
+var img1 = document.getElementById('myImg1');
+var img2 = document.getElementById('myImg2');
+var img3 = document.getElementById('myImg3');
+var img4 = document.getElementById('myImg4');
+var img5 = document.getElementById('myImg5');
+var img6 = document.getElementById('myImg6');
+var img7 = document.getElementById('myImg7');
+var img8 = document.getElementById('myImg8');
+var img9 = document.getElementById('myImg9');
+var img10 = document.getElementById('myImg10');
+
+var modalImg1 = document.getElementById("img01").src="images/C1.gif";
+var modalImg2 = document.getElementById("img02").src="images/C2.gif";
+var modalImg3 = document.getElementById("img03").src="images/C3.gif";
+var modalImg4 = document.getElementById("img04").src="images/C4.gif";
+var modalImg5 = document.getElementById("img05").src="images/C5.gif";
+var modalImg6 = document.getElementById("img06").src="images/C6.gif";
+var modalImg7 = document.getElementById("img07").src="images/C7.gif";
+var modalImg8 = document.getElementById("img08").src="images/C8.gif";
+var modalImg9 = document.getElementById("img09").src="images/C9.gif";
+var modalImg10 = document.getElementById("img10").src="images/C10.gif";
+
+var captionText1  = document.getElementById("caption1");
+var captionText2  = document.getElementById("caption2");
+var captionText3  = document.getElementById("caption3");
+var captionText4  = document.getElementById("caption4");
+var captionText5  = document.getElementById("caption5");
+var captionText6  = document.getElementById("caption6");
+var captionText7  = document.getElementById("caption7");
+var captionText8  = document.getElementById("caption8");
+var captionText9  = document.getElementById("caption9");
+var captionText10  = document.getElementById("caption10");
+
+img1.onclick = function(){
+    modal1.style.display = "block";
+    modalImg1.src = this.src;
+    captionText1.innerHTML = this.alt;
+}
+img2.onclick = function(){
+    modal2.style.display = "block";
+    modalImg2.src = this.src;
+    captionText2.innerHTML = this.alt;
+}
+img3.onclick = function(){
+    modal3.style.display = "block";
+    modalImg3.src = this.src;
+    captionText3.innerHTML = this.alt;
+}
+img4.onclick = function(){
+    modal4.style.display = "block";
+    modalImg4.src = this.src;
+    captionText4.innerHTML = this.alt;
+}
+img5.onclick = function(){
+    modal5.style.display = "block";
+    modalImg5.src = this.src;
+    captionText5.innerHTML = this.alt;
+}
+img6.onclick = function(){
+    modal6.style.display = "block";
+    modalImg6.src = this.src;
+    captionText6.innerHTML = this.alt;
+}
+img7.onclick = function(){
+    modal7.style.display = "block";
+    modalImg7.src = this.src;
+    captionText7.innerHTML = this.alt;
+}
+img8.onclick = function(){
+    modal8.style.display = "block";
+    modalImg8.src = this.src;
+    captionText8.innerHTML = this.alt;
+}
+img9.onclick = function(){
+    modal9.style.display = "block";
+    modalImg9.src = this.src;
+    captionText9.innerHTML = this.alt;
+}
+img10.onclick = function(){
+    modal10.style.display = "block";
+    modalImg10.src = this.src;
+    captionText10.innerHTML = this.alt;
+}
+
+// Get the <span> element that closes the modal
+var span1 = document.getElementsByClassName("close1")[0];
+var span2 = document.getElementsByClassName("close2")[0];
+var span3 = document.getElementsByClassName("close3")[0];
+var span4 = document.getElementsByClassName("close4")[0];
+var span5 = document.getElementsByClassName("close5")[0];
+var span6 = document.getElementsByClassName("close6")[0];
+var span7 = document.getElementsByClassName("close7")[0];
+var span8 = document.getElementsByClassName("close8")[0];
+var span9 = document.getElementsByClassName("close9")[0];
+var span10 = document.getElementsByClassName("close10")[0];
+
+// When the user clicks on <span> (x), close the modal
+span1.onclick = function() {
+    modal1.style.display = "none";
+}
+span2.onclick = function() {
+    modal2.style.display = "none";
+}
+span3.onclick = function() {
+    modal3.style.display = "none";
+}
+span4.onclick = function() {
+    modal4.style.display = "none";
+}
+span5.onclick = function() {
+    modal5.style.display = "none";
+}
+span6.onclick = function() {
+    modal6.style.display = "none";
+}
+span7.onclick = function() {
+    modal7.style.display = "none";
+}
+span8.onclick = function() {
+    modal8.style.display = "none";
+}
+span9.onclick = function() {
+    modal9.style.display = "none";
+}
+span10.onclick = function() {
+    modal10.style.display = "none";
+}
+
+</script>
+
+  <!-- JavaScript -->
+  <script src="http://code.jquery.com/jquery-1.12.1.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+
+
+  <!--main js-->
+  <script type="text/javascript" src="js/main.js"></script>
+
+</body>
+</html>
