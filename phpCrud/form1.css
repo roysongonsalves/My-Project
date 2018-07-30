@@ -1,0 +1,30 @@
+input {
+  width: 400px;
+  display: block;
+  border: 1px solid #999;
+  height: 25px;
+
+}
+label
+{
+  text-decoration: underline;
+  font-size: 25px;
+  font-style: oblique;
+
+}
+textarea
+{
+  width: 400px;
+  display: block;
+  border: 1px solid #999;
+  height: 70px;
+}
+h1
+{
+  font-style: oblique;
+  font-size: 40px;
+}
+body
+{
+  background: grey;
+}
